@@ -1,0 +1,26 @@
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
+var firebaseConfig = {
+	apiKey: 'AIzaSyCVJbhIhF5ZKvOB2oWARPwutOUmh4LK2KA',
+	authDomain: 'crown-fashion-12797.firebaseapp.com',
+	projectId: 'crown-fashion-12797',
+	storageBucket: 'crown-fashion-12797.appspot.com',
+	messagingSenderId: '432315882725',
+	appId: '1:432315882725:web:e0f4bf32ad806588f8080c',
+	measurementId: 'G-ZDYKD5L7F2'
+};
+
+firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
+
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+export default firebase;
