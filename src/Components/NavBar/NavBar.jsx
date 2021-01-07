@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.scss';
 import { ReactComponent as CrownSVG } from './crown.svg';
-import { auth } from '../../Firebase';
+import { auth } from '../../Firebase/Firebase';
+import { connect } from 'react-redux';
 function NavBar({ currentUser }) {
 	return (
 		<div className="header">
@@ -10,7 +11,7 @@ function NavBar({ currentUser }) {
 				<CrownSVG className="logo" />
 			</Link>
 			<div className="options">
-				<Link className="option" to="/shop">
+				<Link className="option" to="/shoping">
 					SHOP
 				</Link>
 				<Link className="option" to="/contact">
@@ -30,4 +31,8 @@ function NavBar({ currentUser }) {
 	);
 }
 
-export default NavBar;
+const mapStateToProps = (state) => ({
+	currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(NavBar);

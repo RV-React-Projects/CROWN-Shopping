@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SignIn.scss';
 import FormInput from '../FormInput/FormInput';
 import CustomButton from '../Custom-Button/CustomButton';
-import { auth, signInWithGoogle } from '../../Firebase';
+import { auth, signInWithGoogle } from '../../Firebase/Firebase';
 
 export class SignIn extends Component {
 	state = {
@@ -16,7 +16,7 @@ export class SignIn extends Component {
 		try {
 			await auth.signInWithEmailAndPassword(email, password);
 		} catch (error) {
-			console.log(error);
+			alert('No User Exist with Provided Email', error.message);
 		}
 
 		this.setState({ email: '', password: '' });

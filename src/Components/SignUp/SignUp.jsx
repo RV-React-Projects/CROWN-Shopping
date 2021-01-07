@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { auth, createUserProfileDocument } from '../../Firebase';
+import { auth, createUserProfileDocument } from '../../Firebase/Firebase';
 import CustomButton from '../Custom-Button/CustomButton';
 import FormInput from '../FormInput/FormInput';
 import './SignUp.scss';
@@ -50,14 +50,7 @@ export default class SignUp extends Component {
 						lable="Display Name"
 						required
 					/>
-					<FormInput
-						type="email"
-						name="email"
-						value={email}
-						onChange={this.handleChange}
-						lable="Email Address"
-						required
-					/>
+					<FormInput type="email" name="email" value={email} onChange={this.handleChange} lable="Email Address" required />
 					<FormInput
 						type="password"
 						name="password"
