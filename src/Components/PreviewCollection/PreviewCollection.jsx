@@ -9,8 +9,8 @@ function PreviewCollection({ title, items }) {
 			<div className="preview">
 				{items
 					.filter((item, index) => index < 4)
-					.map(({ id, name, imageUrl, price }) => (
-						<CollectionItems key={id} name={name} price={price} imageUrl={imageUrl} />
+					.map((item) => (
+						<CollectionItems key={item.id} item={item} />
 					))}
 			</div>
 		</div>
