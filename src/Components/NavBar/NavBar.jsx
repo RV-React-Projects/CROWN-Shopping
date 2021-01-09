@@ -4,7 +4,9 @@ import './NavBar.scss';
 import { ReactComponent as CrownSVG } from './crown.svg';
 import { auth } from '../../Firebase/Firebase';
 import { connect } from 'react-redux';
-function NavBar({ currentUser }) {
+import CartIcon from '../CartIcon/CartIcon';
+import CartDropdown from '../Cart-DropDown/CartDropdown';
+function NavBar({ currentUser, hidden }) {
 	return (
 		<div className="header">
 			<Link className="logo-Container" to="/">
@@ -26,13 +28,16 @@ function NavBar({ currentUser }) {
 						SIGN IN
 					</Link>
 				)}
+				<CartIcon />
 			</div>
+			{hidden ? null : <CartDropdown />}
 		</div>
 	);
 }
 
-const mapStateToProps = (state) => ({
-	currentUser: state.user.currentUser
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+	currentUser,
+	hidden
 });
 
 export default connect(mapStateToProps)(NavBar);
