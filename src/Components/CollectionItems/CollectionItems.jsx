@@ -4,7 +4,7 @@ import { addItemstoCart } from '../../Redux/Cart/CartAction';
 import CustomButton from '../Custom-Button/CustomButton';
 import './CollectionItems.scss';
 function CollectionItems({ item, addItemstoCart }) {
-	const { id, name, price, imageUrl } = item;
+	const { name, price, imageUrl } = item;
 	return (
 		<div className="collection-item">
 			<div className="image" style={{ backgroundImage: `url(${imageUrl})` }} />
