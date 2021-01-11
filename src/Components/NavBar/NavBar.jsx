@@ -6,6 +6,9 @@ import { auth } from '../../Firebase/Firebase';
 import { connect } from 'react-redux';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../Cart-DropDown/CartDropdown';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from '../../Redux/User/UserSelector';
+import { selectCartHidden } from '../../Redux/Cart/CartSelector';
 function NavBar({ currentUser, hidden }) {
 	return (
 		<div className="header">
@@ -13,7 +16,7 @@ function NavBar({ currentUser, hidden }) {
 				<CrownSVG className="logo" />
 			</Link>
 			<div className="options">
-				<Link className="option" to="/shoping">
+				<Link className="option" to="/shop">
 					SHOP
 				</Link>
 				<Link className="option" to="/contact">
@@ -35,9 +38,9 @@ function NavBar({ currentUser, hidden }) {
 	);
 }
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-	currentUser,
-	hidden
+const mapStateToProps = createStructuredSelector({
+	currentUser: selectCurrentUser,
+	hidden: selectCartHidden
 });
 
 export default connect(mapStateToProps)(NavBar);

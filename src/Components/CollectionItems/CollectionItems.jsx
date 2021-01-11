@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addItemstoCart } from '../../Redux/Cart/CartAction';
+import { addItemstoCart, toggleCartHidden } from '../../Redux/Cart/CartAction';
 import CustomButton from '../Custom-Button/CustomButton';
 import './CollectionItems.scss';
-function CollectionItems({ item, addItemstoCart }) {
+
+function CollectionItems({ item, addItemstoCart, dispatch }) {
 	const { name, price, imageUrl } = item;
 	return (
 		<div className="collection-item">
