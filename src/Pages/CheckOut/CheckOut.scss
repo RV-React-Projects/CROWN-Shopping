@@ -27,5 +27,22 @@
 		margin-top: 30px;
 		margin-left: auto;
 		font-size: 36px;
+		span {
+			margin-right: 2rem;
+		}
+		button {
+			padding: 2rem;
+			span {
+				margin: 0;
+			}
+		}
+	}
+	.test-warning {
+		color: #f00;
+		align-items: center;
+		text-align: center;
+		font-size: x-large;
+		font-weight: 600;
+		margin: 1rem 0;
 	}
 }
